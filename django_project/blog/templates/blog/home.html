@@ -2,7 +2,7 @@
 
 {% block content %}
 
-	<div class='w3-container'>
+	<div class='w3-container '>
     <h2 class='w3-text-red'>My Posts</h2>
 
 	{% for post in posts%}
@@ -12,7 +12,7 @@
 	<small>Published on {{ post.published_at | date:"M d, Y" }} by
          {{ post.author | title}}</small>
 
-	<p class='w3-grey'>{{ post.content }}</p>
+	<p>{{ post.content }}</p>
 	
 
 	{% endfor%}
