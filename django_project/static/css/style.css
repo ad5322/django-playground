@@ -31,7 +31,7 @@ input[type="submit"]{
 }
 
 .alert-success{
-	background-color: #dfd
+	background-color: rgb(11, 12, 11)
 }
 .alert-error{
 	background-color:#ba2121;

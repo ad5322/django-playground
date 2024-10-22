@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     
     <link rel="stylesheet" href=" {% static "css/w3.css" %} ">
     <title>
@@ -15,6 +16,15 @@
     </title>
 </head>
 <body class='w3-black'>
+    {% if messages %}
+		<div class="messages w3-panel">
+		{% for message in messages %}
+			<div class="w3-panel w3-green {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+				{{ message }}
+			</div>
+		{% endfor %}
+		</div>
+	{% endif %}
     
     {% block content %}
     
