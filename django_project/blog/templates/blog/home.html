@@ -13,9 +13,13 @@
          {{ post.author | title}}</small>
 
 	<p>{{ post.content }}</p>
-	<p><a href="{% url 'post-edit' post.id %}">Edit</a></p>
-	<p><a href="{% url 'post-delete' post.id %}">Delete</a></p>
 
+	{% if request.user.is_authenticated %}
+
+		<p><a href="{% url 'post-edit' post.id %}">Edit</a></p>
+		<p><a href="{% url 'post-delete' post.id %}">Delete</a></p>
+
+	{% endif %}
 	{% endfor%}
 	</div>
 {% endblock %}

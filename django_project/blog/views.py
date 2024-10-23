@@ -1,8 +1,10 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import Post
 from .form import PostForm
 
+@login_required
 def delete_post(request,id):
     post = get_object_or_404(Post,id = id)
     context = {
@@ -15,6 +17,7 @@ def delete_post(request,id):
         messages.success(request,'The post has been deleted successfully')
         return redirect('posts')
 
+@login_required
 def edit_post(request,id):
     post = get_object_or_404(Post,id = id)
     
@@ -34,6 +37,7 @@ def edit_post(request,id):
             messages.error(request,'Please correct the following error')
             return render(request,'blog/post_form.html',{'form':form,})
 
+@login_required
 def create_post(request):
     if request.method == "GET":
         
